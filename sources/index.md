@@ -54,7 +54,7 @@ Keras 2.2.5 버전은 케라스의 마지막 2.2.* 버전입니다. 2.2.5 버전
 
 ## 시작하기: 케라스까지 30초
 
-케라스에서 가장 중요한 데이터 구조는 __모델__입니다. 모델은 층<sub>layer</sub> 구성하는 방식입니다. 가장 간단한 모델인 [`Sequential`](https://keras.io/getting-started/sequential-model-guide) 모델은 층을 선형적으로 쌓습니다. 보다 복잡한 구조를 만드려면, [케라스 함수 API](https://keras.io/getting-started/functional-api-guide)를 사용하여 임의의 층 그래프를 생성할 수 있습니다.
+케라스에서 가장 중요한 데이터 구조는 __모델__ 입니다. 모델은 층<sub>layer</sub> 구성하는 방식입니다. 가장 간단한 모델인 [`Sequential`](https://keras.io/getting-started/sequential-model-guide) 모델은 층을 선형적으로 쌓습니다. 보다 복잡한 구조를 만드려면, [케라스 함수 API](https://keras.io/getting-started/functional-api-guide)를 사용하여 임의의 층 그래프를 생성할 수 있습니다.
 
 `Sequential` 모델입니다.
 
@@ -64,7 +64,7 @@ from keras.models import Sequential
 model = Sequential()
 ```
 
-`.add()`를 통해 층을 간단하게 쌓을 수 있습니다.
+`.add()`함수를 사용하여 쉽게 층을 쌓을 수 있습니다.
 
 ```python
 from keras.layers import Dense
@@ -73,7 +73,7 @@ model.add(Dense(units=64, activation='relu', input_dim=100))
 model.add(Dense(units=10, activation='softmax'))
 ```
 
-모델이 마음에 드신다면, `.compile()`로 학습 과정에 대한 설정을 하십시오.
+모델이 마음에 드신다면, `.compile()`함수를 사용하여 학습 과정에 대한 설정을 할 수 있습니다.
 
 ```python
 model.compile(loss='categorical_crossentropy',
@@ -81,7 +81,7 @@ model.compile(loss='categorical_crossentropy',
               metrics=['accuracy'])
 ```
 
-필요한 경우에 최적화 함수에 대한 설정도 할 수 있습니다. 케라스의 주요 철학중 하나는 사용자가 필요한 작업에 대해서는 완전한 제어권을 가질 수 있도록 하되 간결성을 유지하는 것입니다 (제어권의 궁극적인 형태로는 소스코드의 간편한 확장성이 있습니다).
+필요한 경우, 최적화 함수에 대한 설정을 추가로 할 수 있습니다. 사용자가 필요할 때에는 완전한 권한을 가질 수 있도록 하되, 간결성을 유지하는 것이 케라스의 주요 철학중 하나입니다 (완전한 권한을 가짐으로써 소스코드의 확장이 용이해집니다).
 ```python
 model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.SGD(lr=0.01, momentum=0.9, nesterov=True))
@@ -112,14 +112,14 @@ loss_and_metrics = model.evaluate(x_test, y_test, batch_size=128)
 classes = model.predict(x_test, batch_size=128)
 ```
 
-질문에 대답하는 시스템, 이미지 분류 모델, 신경망 튜링 기계나 그 외의 다른 모델도 이처럼 빠르게 만들 수 있습니다. 딥러닝의 기본이 되는 아이디어가 간단한데 그 실행이 복잡할 이유가 어디 있겠습니까?
+이처럼 케라스를 활용하여 질문 응답 시스템, 이미지 분류 모델, 신경망 튜링 기계등의 어떤 모델이라도 빠르게 만들 수 있습니다. 딥러닝의 기본이 되는 아이디어가 간단한데 그 구현이 복잡할 이유가 어디 있겠습니까?
 
 조금  심화된 케라스 튜토리얼을 원하신다면 다음을 참고하십시오.
 
 - [Getting started with the Sequential model](https://keras.io/getting-started/sequential-model-guide)
 - [Getting started with the functional API](https://keras.io/getting-started/functional-api-guide)
 
-저장소<sub>repository</sub>의 [examples 폴더](https://github.com/keras-team/keras/tree/master/examples)에서는, 보다 고급 모델을 확인할 수 있습니다. 질문에 대답하는 메모리 신경망<sub>memory networks</sub>, 복수의 LSTM을 이용한 문서 생성 등이 있습니다.
+저장소<sub>repository</sub>의 [examples 폴더](https://github.com/keras-team/keras/tree/master/examples)에서는, 보다 고급 모델을 확인할 수 있습니다. 질문에 대답하는 메모리 신경망<sub>memory networks</sub>, 적층 LSTM<sub>stacked LSTM</sub>을 이용한 문서 생성 등이 있습니다.
 
 
 ------------------
@@ -127,7 +127,7 @@ classes = model.predict(x_test, batch_size=128)
 
 ## 설치
 
-케라스를 설치하기 전에, 다음의 백엔드 엔진 중 하나를 설치하십시오: TensorFlow, Theano, 혹은 CNTK. TensorFlow 백엔드를 사용할 것을 추천드립니다.
+케라스를 설치하기 전에, 백엔드 엔진을 먼저 설치해야 합니다. TensorFlow, Theano, 혹은 CNTK 중 하나를 설치하십시오. TensorFlow 백엔드를 사용할 것을 추천드립니다.
 
 - [TensorFlow 설치 설명서](https://www.tensorflow.org/install/).
 - [Theano 설치 설명서](http://deeplearning.net/software/theano/install.html#install).
@@ -135,13 +135,13 @@ classes = model.predict(x_test, batch_size=128)
 
 다음의 **선택적 종속**을 설치하는 것도 고려해 보십시오.
 
-- [cuDNN](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/) (GPU에 케라스를 실행하실 경우 추천드립니다).
+- [cuDNN](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/) (GPU에 케라스를 실행하실 경우 추천합다).
 - HDF5 and [h5py](http://docs.h5py.org/en/latest/build.html) (디스크에 케라스 모델을 저장하실 경우 필요합니다).
 - [graphviz](https://graphviz.gitlab.io/download/)와 [pydot](https://github.com/erocarrera/pydot) (모델 그래프를 시각화하는 [visualization utilities](https://keras.io/visualization/)에 사용됩니다).
 
-이제 케라스를 설치하시면 됩니다. 케라스 설치에는 두가지 방법이 있습니다.
+이제 케라스를 설치하시면 됩니다. 케라스를 설치하는 방법은 두 가지가 있습니다.
 
-- **PyPI에서 케라스 설치하기(추천)**
+**(1) PyPI에서 케라스 설치하기(추천)**
 
 참고: 이 설치 단계는 사용자가 Linux 또는 Mac 환경에 있다고 가정합니다. Windows 사용자는 sudo를 빼고 아래의 명령을 실행해야 합니다.
 
@@ -155,7 +155,9 @@ sudo pip install keras
 pip install keras
 ```
 
-- **대안: 깃허브 소스를 통해 케라스 설치하는 방법입니다.**
+**(2) Github 소스를 통해 케라스 설치하기**
+
+다른 방법으로, Github 소스를 통해 케라스를 설치하는 방법입니다.
 
 먼저 `git`명령어를 사용하여 케라스를 clone하십시오.
 
@@ -179,20 +181,20 @@ sudo python setup.py install
 ------------------
 
 
-## 지원
+## 지원하기
 
-다음을 통해서 개발 논의에 참여하거나 질문을 주실 수 있습니다.
+다음을 통해서 개발 논의에 참여하거나 질문을 할 수 있습니다.
 
-- [케라스 구글 그룹](https://groups.google.com/forum/#!forum/keras-users).
-- [케라스 슬랙 채널](https://kerasteam.slack.com). [이 링크](https://keras-slack-autojoin.herokuapp.com/)를 사용해서 케라스 슬랙 채널에의 초대를 신청하시면 됩니다.
+- [케라스 Google 그룹](https://groups.google.com/forum/#!forum/keras-users).
+- [케라스 Slack 채널](https://kerasteam.slack.com). [이 링크](https://keras-slack-autojoin.herokuapp.com/)에서 케라스 Slack 채널에 초대를 신청할 수 있습니다.
 
-또한 [GitHub issues](https://github.com/keras-team/keras/issues)에 (유일한 창구입니다) **버그 리포트와 기능 요청**을 올리실 수 있습니다. 먼저 [가이드라인](https://github.com/keras-team/keras/blob/master/CONTRIBUTING.md)을 꼭 참고해주십시오.
+또한 **버그 리포트와 기능 요청**은 [GitHub issues](https://github.com/keras-team/keras/issues)에서만 작성항 수 있습니다. 작성하기 전에 [가이드라인](https://github.com/keras-team/keras/blob/master/CONTRIBUTING.md)을 반드시 확인해주십시오.
 
 
 ------------------
 
 
-## 왜 케라스라는 이름인가요?
+## 왜 케라스인가요?
 
 케라스(κέρας)는 그리스어로 _뿔_ 이라는 뜻입니다. _Odyssey_ 에서 최초로 언급된, 고대 그리스와 라틴 문학의 신화적 존재에 대한 이야기로, 두 가지 꿈의 정령(_Oneiroi_, 단수 _Oneiros_) 중 하나는 상아문을 통해 땅으로 내려와 거짓된 환상으로 사람을 속이며, 다른 하나는 뿔을 통해 내려와 앞으로 벌어질 미래를 예언합니다. 이는 κέρας (뿔) / κραίνω (이뤄지다), 그리고 ἐλέφας (상아) / ἐλεφαίρομαι (속이다)에 대한 언어유희이기도 합니다.
 
