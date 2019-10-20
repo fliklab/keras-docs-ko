@@ -10,7 +10,7 @@
 
 다음과 같은 딥러닝 라이브러리가 필요한 경우에 케라스를 사용하면 좋습니다. 
 
-- 케라스의 특징인 사용자 친화성, 모듈성, 확장성을 바탕으로 딥러닝 프로토타입을 쉽고 빠르게 만들 수 있습니다. 
+- 케라스의 특징인 사용자 친화성, 모듈성, 확장성을 바탕으로 딥러닝 모델의 프로토타입을 쉽고 빠르게 만들 수 있습니다. 
 - 합성곱 신경망<sub>convolutional networks</sub>, 순환 신경망<sub>recurrent networks</sub>을 모두 지원하며, 이 둘을 자유롭게 조합하여 사용할 수 있습니다.
 - 동일한 코드로 CPU와 GPU에서 실행할 수 있습니다. 
 
@@ -114,7 +114,7 @@ classes = model.predict(x_test, batch_size=128)
 
 이처럼 케라스를 활용하여 질문 응답 시스템, 이미지 분류 모델, 신경망 튜링 기계등의 어떤 모델이라도 빠르게 만들 수 있습니다. 딥러닝의 기본이 되는 아이디어가 간단한데 그 구현이 복잡할 이유가 어디 있겠습니까?
 
-조금  심화된 케라스 튜토리얼을 원하신다면 다음을 참고하십시오.
+좀더 심화된 케라스 튜토리얼을 원하신다면 다음을 참고하십시오.
 
 - [Getting started with the Sequential model](https://keras.io/getting-started/sequential-model-guide)
 - [Getting started with the functional API](https://keras.io/getting-started/functional-api-guide)
