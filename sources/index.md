@@ -4,50 +4,57 @@
 
 
 
-## 케라스에 오신걸 환영합니다.
+## 케라스에 오신것을 환영합니다.
 
-케라스는 파이썬으로 작성된 고수준 신경망 API로 [TensorFlow](https://github.com/tensorflow/tensorflow), [CNTK](https://github.com/Microsoft/cntk), 혹은 [Theano](https://github.com/Theano/Theano)와 함께 사용하실 수 있습니다. 빠른 실험에 특히 중점을 두고 있습니다. *아이디어를 결과물로 최대한 빠르게 구현하는 것은 훌륭한 연구의 핵심입니다.*
+케라스는 Python으로 작성된 고수준의 신경망 API입니다. [TensorFlow](https://github.com/tensorflow/tensorflow), [CNTK](https://github.com/Microsoft/cntk), 혹은 [Theano](https://github.com/Theano/Theano)와 함께 사용할 수 있습니다. 케라스는 신속한 실험을 가능하게 하기 위해 개발되었습니다. *아이디어가 결과물에 이르기까지 걸리는 시간을 최소화 하는것이 바로 좋은 연구의 핵심입니다.*
 
 다음과 같은 딥러닝 라이브러리가 필요한 경우에 케라스를 사용하면 좋습니다. 
 
-- (사용자 친화성, 모듈성, 확장성을 통해)빠르고 간편한 프로토타이핑을 할 수 있습니다.
-- 합성곱 신경망<sub>convolutional networks</sub>, 순환 신경망<sub>recurrent networks</sub>, 그리고 둘의 조합까지 모두 지원됩니다.
-- CPU와 GPU에서 매끄럽게 실행됩니다.
+- 케라스의 특징인 사용자 친화성, 모듈성, 확장성을 바탕으로 딥러닝 프로토타입을 쉽고 빠르게 만들 수 있습니다. 
+- 합성곱 신경망<sub>convolutional networks</sub>, 순환 신경망<sub>recurrent networks</sub>을 모두 지원하며, 이 둘을 자유롭게 조합하여 사용할 수 있습니다.
+- 동일한 코드로 CPU와 GPU에서 실행할 수 있습니다. 
 
-[Keras.io](https://keras.io)의 사용설명서를 참고하십시오.
+[Keras.io](https://keras.io)에서 문서를 찾아 볼 수 있습니다.
 
-케라스는 다음의 파이썬 버전과 호환됩니다: __Python 2.7-3.6__.
+케라스는 Python 2.7-3.6과 호환됩니다.
 
 
 ------------------
 
-## 다중 백엔드 Keras 및 tf.keras
-**TensorFlow 백엔드와 함께 다중 백엔드 케라스<sub>multi-backend Keras</sub>를 사용하고 있는 사용자는 TensorFlow 2.0의 `tf.keras`로 전환하기를 권장합니다.** `tf.keras`는 TensorFlow의 기능들 (즉시실행, 배포 지원 등)과 잘 호환되도록 유지, 관리되고 있습니다.
-Keras 2.2.5는 2.2.* API를 구현 한 Keras의 마지막 릴리스입니다. TensorFlow 1(그리고 Theano 및 CNTK)을 지원하는 마지막 릴리스입니다. 
-현재 릴리스는 Keras 2.3.0입니다. API가 크게 변경되었고 TensorFlow 2.0에 대한 지원이 추가되었습니다. 2.3.0 릴리스는 멀티 백엔드 Keras의 마지막 major release입니다. 다중 백엔드 케라스는 `tf.keras`로 대체되었습니다. 
-다중 백엔드 케라스에 존재하는 버그는 2020 년 4 월까지만 minor release로 수정될 예정입니다. 
-케라스의 미래에 대한 자세한 내용은 [케라스 회의 노트](http://bit.ly/keras-meeting-notes)를 참조하십시오.
+## 다중 백엔드 케라스<sub>multi-backend Keras</sub>와 tf.keras
+**TensorFlow 백엔드와 함께 다중 백엔드 케라스를 사용하는 사용자는 TensorFlow 2.0에 포함된 `tf.keras`로 전환 하기를 권장합니다.** `tf.keras`는 기존의 케라스에 비해 잘 관리되고 있으며, TensorFlow의 다른 기능들(즉시실행<sub>eager execution</sub>, 배포 지원<sub>distribution support</sub> 등)과도 잘 호환됩니다. 
+
+Keras 2.2.5 버전은 케라스의 마지막 2.2.* 버전입니다. 2.2.5 버전은 TensorFlow 1과 Theano 및 CNTK를 지원하는 마지막 릴리스입니다. 
+
+현재 릴리스는 Keras 2.3.0 버전입니다. API가 크게 변경되었으며 TensorFlow 2.0에 대한 지원이 추가되었습니다. 2.3.0 버전은 다중 백엔드 Keras의 마지막 주요 릴리스입니다. 다중 백엔드 케라스는 `tf.keras`로 대체되었습니다. 
+
+다중 백엔드 케라스의 버그 수정은 것은 2020년 4 월까지만 마이너 릴리스를 통해 이루어질 것입니다. 
+
+케라스의 미래에 대한 자세한 내용은 [케라스 회의 노트](http://bit.ly/keras-meeting-notes)를 참고하십시오.
 
 ------------------
 
 
-## 이념
+## 케라스의 주요 철학
 
-- __사용자 친화성.__ 케라스는 기계가 아닌 사람을 위해 디자인된 API입니다. 무엇보다 사용자 경험을 우선으로 두는 것입니다. 케라스는 사용자가 쉽게 접근할 수 있도록 다음의 원칙을 지킵니다. 일관성있고 간단한 API를 제공하고, 자주 쓰는 기능에 대해서 사용자의 액션을 최소화하며, 사용자 에러가 발생하는 경우 명료하고 실행가능한 피드백을 줍니다.
+- __사용자 친화성.__ 사용자 친화성. 케라스는 기계가 아닌 사람을 위해 디자인된 API입니다. 무엇보다 사용자의 경험을 우선으로 두고 있습니다. 케라스는 다음의 원칙을 지킴으로써, 사용자의 정보에 대한 인지를 원활하게 합니다. 
+  - 일관성있고 간결한 API를 제공합니다.
+  - 일반적으로 사용되는 기능에서 사용자의 작업을 최소화합니다.
+  - 사용자 오류시 명확하고 실행 가능한 피드백을 제공합니다.
 
 - __모듈성.__ 모델은, 최소한의 제한으로 다양한 조합이 가능한 독립적이며 완전히 변경가능한 모듈의 시퀀스 혹은 그래프로 이해할 수 있습니다. 특히 신경망 층<sub>neural layers</sub>, 손실 함수<sub>cost functions</sub>, 최적화 함수<sub>optimizer</sub>, 최초값 설정 규칙<sub>initialization schemes</sub>, 활성화 함수<sub>activation functions</sub>, 정규화 규칙<sub>regularization schemes</sub>은 모두 독립적인 모듈로, 다양하게 조합하여 새로운 모델을 만들어 낼 수 있습니다.
 
-- __쉬운 확장성.__ 새로운 모듈은 (새로운 클래스와 함수의 형태로) 간단하게 추가할 수 있으며, 기존의 모듈이 풍부한 범례를 제공합니다. 새로운 모듈을 쉽게 만들어낼 수 있다는 점은 표현력을 풍부하게 해주기에, 케라스는 고급 연구를 하기에 적합합니다.
+- __확장성.__ 새로운 모듈을 (클래스나 함수의 형태로) 간단하게 추가할 수 있으며, 기존의 모듈이 풍부한 사례를 제공합니다.  모듈을 새로 생성하는 것이 쉬워지면, 사용자는 뛰어난 표현력을 발휘할 수 있게 됩니다. 이러한 확장성을 바탕으로 케라스가 고수준의 연구에 적합하다고 할 수 있습니다.
 
-- __파이썬과의 호환.__ 모델 구성 파일을 선언형 포맷으로 따로 두거나 하지 않습니다. 모델은 파이썬 코드로 작성되어 간결하고, 오류를 수정하기 쉬우며, 확장성이 뛰어납니다.
+- __Python과의 호환.__ 케라스는 선언형의 모델 설정파일을 별도로 두지 않습니다. 모델은 Python 코드로 작성되며, 이로써 간결하고, 디버깅이 쉬우며, 확장성이 뛰어납니다.
 
 
 ------------------
 
 
-## 시작하기: 30초 케라스
+## 시작하기: 케라스까지 30초
 
-케라스의 주요 데이터 구조는 __model__,로 층<sub>layer</sub>을 조직하는 방식입니다. 가장 간단한 종류의 모델인 [`Sequential`](https://keras.io/getting-started/sequential-model-guide) 모델은 층을 선형적으로 쌓습니다. 보다 복잡한 구조를 만드려면, [Keras functional API](https://keras.io/getting-started/functional-api-guide)를 사용하여 층으로 임의의 그래프를 구축하면 됩니다.
+케라스에서 가장 중요한 데이터 구조는 __모델__입니다. 모델은 층<sub>layer</sub> 구성하는 방식입니다. 가장 간단한 모델인 [`Sequential`](https://keras.io/getting-started/sequential-model-guide) 모델은 층을 선형적으로 쌓습니다. 보다 복잡한 구조를 만드려면, [케라스 함수 API](https://keras.io/getting-started/functional-api-guide)를 사용하여 임의의 층 그래프를 생성할 수 있습니다.
 
 `Sequential` 모델입니다.
 
